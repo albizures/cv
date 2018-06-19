@@ -2,50 +2,138 @@ $blue = #4997df;
 $dark-blue = #4997df;
 $darker-blue = #3779b7;
 
+$gray = #7c8c8d;
 
-body{
-  font-family: "Helvetica";
-  // text-align: center;
-  padding: 50px 20px 0;
-  // background: #f4f4f7;
-  color: #444;
-  margin: 0;
+* {
+  box-sizing: border-box;
 }
 
-header {
-  background: $blue
-  color: white;
-  text-align: right;
-  padding: 5px 20px;
-  border-bottom: 5px solid $darker-blue
+body{
+  font-family: 'Merriweather', sans-serif;
+  background: gray;
+  color: #444;
+  margin: 0;
+  font-size: 16px;
+}
 
-  h2 {
+@media print {
+  @page {
+    size: auto;
+    margin: 0mm 0mm 0mm 0mm;
+  } 
+
+  body {
+    padding: 0;
     margin: 0
+    background: white;
+  }
+
+  header,
+  main,
+  footer {
+    max-width auto
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
   }
 }
 
-section {
-  padding: 0 20px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Archivo Narrow', sans-serif;
 }
 
+header {
+  color: white;
+  text-align: right;
+  padding-top: 20px;
 
-h4 {
-  margin-top: 60px;
+
+  .bar {
+    background: $blue
+    border-bottom: 5px solid $darker-blue
+    padding: 0px 20px;
+  }
+
+  h2 {
+    margin: 0
+    font-size: 2rem
+    font-weight: 400
+    text-shadow: 0 -3px 0 $darker-blue
+  }
 }
 
-dd {
-  margin: 5px 0 10px 0
-  padding-left: 10px;
-  border-bottom: 2px dotted gray;
+.img {
+  float: left;
+  margin: 0 12px 4px 0
+  display inline-block
+  background-image: url('photo.png')
+  background-position: 50%;
+  background-size: cover;
+  width: 130px
+  height: 130px
+  box-shadow: 0 0 1px 2px rgba(0,0,0,0.2);
+}
+
+img {
+  width: auto;
 }
 
 h1 {
   color: $dark-blue;
   font-weight: 100
-  font-size: 40px;
+  font-size: 2.5rem
+  margin: 10px 0 0
 }
 
-main {
+h3 {
+  color: $gray
+  margin: 0
+  margin-bottom: 30px
+  font-size: 2rem
+  font-weight: 100
+}
+
+h4 {
+  font-weight: 400
+  color: $blue
+  font-size: 1.4rem
+  padding: 6px 0
+  border-bottom: 2px dotted gray;
+}
+
+.about-me {
+  font-weight: 100
+  font-size: 1.1rem
+}
+
+dt {
+  &::after {
+    content: ':'
+  }
+}
+
+dd {
+  margin: 5px 0 10px 0
+  padding-left: 10px;
+  border-bottom: 1px solid rgba($gray, 0.6);
+  color: $gray
+}
+
+.about-me-container {
+  margin: 10px 0 10px
+  section {
+  }
+}
+
+
+main,
+footer {
   padding: 0 30px;
 }
 
@@ -53,14 +141,90 @@ main,
 header,
 footer {
   margin: 0 auto
-  max-width 800px
+  max-width 820px
+  background: white;
 }
 
-main {
-  display: flex;
+.section-container {
+  display: flex
 
   section {
     flex: 1
+
+    &:first-child {
+      padding-right: 20px
+    }
+
+    &:last-child {
+      padding-left: 20px
+    }
+  }
+}
+
+footer {
+  padding-bottom: 20px
+  section {
+    margin-top: 6px
+    margin-bottom: 6px
+    position relative
+  }
+  h4 {
+    padding-top: 10px;
+    margin: 0
+  }
+
+  h5 {
+    font-weight: 400
+    font-size: 1.3rem
+    padding: 6px 0 2px 
+    margin: 0
+  }
+
+  h6 {
+    font-weight: 100
+    color: $gray;
+    font-size: 1.2rem
+    margin: 0
+  }
+  p {
+    font-weight: 100
+    margin: 6px 0 0
+    font-size: 0.8rem
+  }
+
+  .date {
+    position absolute
+    right: 10px
+    top: 10px
+    font-size: 0.8rem
+    color white
+    background: rgba($gray, 0.5);
+    border-radius: 3px
+    padding: 5px 10px
+  }
+}
+
+main {
+  section {
+    &:first-child {
+      position: relative;
+
+      &::after {
+        content: ''
+        position: absolute;
+        margin: 20px 0
+        right: 0;
+        top: 0
+        width: 1;
+        height: calc(100% - 20px)
+        border-right: 1px solid rgba($gray, 0.6);
+      }
+    }
+  }
+
+  h4 {
+    margin-top: 8px;
+    margin-bottom: 10px;
   }
 }
 
